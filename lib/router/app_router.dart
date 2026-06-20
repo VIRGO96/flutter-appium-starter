@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
 import '../screens/dashboard_screen.dart';
+import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
 
 /// Builds the app router, using [authProvider] to gate route access.
@@ -18,8 +19,8 @@ GoRouter createRouter(AuthProvider authProvider) {
       // Not logged in and not heading to login → redirect to login.
       if (!isLoggedIn && !goingToLogin) return '/login';
 
-      // Already logged in and heading to login → redirect to dashboard.
-      if (isLoggedIn && goingToLogin) return '/dashboard';
+      // Already logged in and heading to login → redirect to home.
+      if (isLoggedIn && goingToLogin) return '/home';
 
       return null; // no redirect needed
     },
@@ -28,6 +29,11 @@ GoRouter createRouter(AuthProvider authProvider) {
         path: '/login',
         name: 'login',
         builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/home',
+        name: 'home',
+        builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
         path: '/dashboard',

@@ -5,13 +5,9 @@ import 'providers/auth_provider.dart';
 import 'router/app_router.dart';
 
 void main() async {
-  // Required when calling native code (SharedPreferences) before runApp.
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Load persisted auth state before rendering.
   final authProvider = AuthProvider();
   await authProvider.initialize();
-
   runApp(
     ChangeNotifierProvider.value(
       value: authProvider,
