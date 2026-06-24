@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
 import '../screens/dashboard_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/new_screen.dart';
 
 /// Builds the app router, using [authProvider] to gate route access.
 GoRouter createRouter(AuthProvider authProvider) {
@@ -39,6 +39,11 @@ GoRouter createRouter(AuthProvider authProvider) {
         path: '/dashboard',
         name: 'dashboard',
         builder: (context, state) => const DashboardScreen(),
+      ),
+      GoRoute(
+        path: '/location',
+        name: 'location',
+        builder: (context, state) => const BrokenLocationFilterScreen(),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(

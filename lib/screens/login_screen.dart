@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       setState(() => _errorMessage = null);
       // GoRouter redirect will fire automatically via auth state change.
-      if (mounted) context.go('/home');
+      if (mounted) context.go('/location');
     }
   }
 
